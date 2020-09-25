@@ -36,10 +36,10 @@
         },
         {
             "name": "Todo",
-            "id": "class-Todo-51700d653c6a66874a91ef72ce585b82",
+            "id": "class-Todo-03b52a79572bf77cfb35ff59729059df",
             "file": "src/app/todo/todo.component.ts",
             "type": "class",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\nexport class Todo{\n  title: string;\n  done: boolean;\n}\n\n@Component({\n  selector: 'app-todo',\n  templateUrl: './todo.component.html',\n  styleUrls: ['./todo.component.css']\n})\nexport class TodoComponent implements OnInit {\n\n  @Input() public todo: Todo;\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\n\nexport class Todo{\n  title: string;\n  done: boolean;\n}\n\n@Component({\n  selector: 'app-todo',\n  templateUrl: './todo.component.html',\n  styleUrls: ['./todo.component.css']\n})\nexport class TodoComponent implements OnInit {\n\n  @Input() public todo: Todo;\n  @Output() onDone: EventEmitter<any> = new EventEmitter();\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
             "properties": [
                 {
                     "name": "done",
@@ -320,7 +320,7 @@
         },
         {
             "name": "TodoComponent",
-            "id": "component-TodoComponent-51700d653c6a66874a91ef72ce585b82",
+            "id": "component-TodoComponent-03b52a79572bf77cfb35ff59729059df",
             "file": "src/app/todo/todo.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -343,7 +343,14 @@
                     "type": "Todo"
                 }
             ],
-            "outputsClass": [],
+            "outputsClass": [
+                {
+                    "name": "onDone",
+                    "defaultValue": "new EventEmitter()",
+                    "line": 16,
+                    "type": "EventEmitter<any>"
+                }
+            ],
             "propertiesClass": [],
             "methodsClass": [
                 {
@@ -352,7 +359,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 19
+                    "line": 20
                 }
             ],
             "hostBindings": [],
@@ -360,7 +367,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\nexport class Todo{\n  title: string;\n  done: boolean;\n}\n\n@Component({\n  selector: 'app-todo',\n  templateUrl: './todo.component.html',\n  styleUrls: ['./todo.component.css']\n})\nexport class TodoComponent implements OnInit {\n\n  @Input() public todo: Todo;\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\n\nexport class Todo{\n  title: string;\n  done: boolean;\n}\n\n@Component({\n  selector: 'app-todo',\n  templateUrl: './todo.component.html',\n  styleUrls: ['./todo.component.css']\n})\nexport class TodoComponent implements OnInit {\n\n  @Input() public todo: Todo;\n  @Output() onDone: EventEmitter<any> = new EventEmitter();\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -373,12 +380,12 @@
                 "name": "constructor",
                 "description": "",
                 "args": [],
-                "line": 15
+                "line": 16
             },
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<p>\n    <input type=\"checkbox\" [(ngModule)] = \"todo.done\"  />\n    {{todo.title}}\n</p>\n"
+            "templateData": "<p>\n    <input type=\"checkbox\" [(ngModel)] = \"todo.done\"  (click)=\"onDone.emit('hi')\" />\n    {{todo.title}}\n</p>\n"
         }
     ],
     "modules": [
@@ -459,6 +466,14 @@
     "miscellaneous": {
         "variables": [
             {
+                "name": "actions",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/todo/todo.component.stories.ts",
+                "type": "object",
+                "defaultValue": "{\r\n    onDone: action('onDone')\r\n}"
+            },
+            {
                 "name": "context",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -470,17 +485,17 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.ts",
+                "file": "src/environments/environment.prod.ts",
                 "type": "object",
-                "defaultValue": "{\n  production: false\n}"
+                "defaultValue": "{\n  production: true\n}"
             },
             {
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.prod.ts",
+                "file": "src/environments/environment.ts",
                 "type": "object",
-                "defaultValue": "{\n  production: true\n}"
+                "defaultValue": "{\n  production: false\n}"
             },
             {
                 "name": "Large",
@@ -510,7 +525,7 @@
                 "name": "LoggedOut",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Header.stories.ts",
+                "file": "src/stories/Page.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -518,7 +533,7 @@
                 "name": "LoggedOut",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Page.stories.ts",
+                "file": "src/stories/Header.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -557,17 +572,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Page.stories.ts",
-                "type": "Story<Page>",
-                "defaultValue": "(args: Page) => ({\n  component: Page,\n  props: args,\n})"
+                "file": "src/stories/Header.stories.ts",
+                "type": "Story<Header>",
+                "defaultValue": "(args: Header) => ({\n  component: Header,\n  props: args,\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Header.stories.ts",
-                "type": "Story<Header>",
-                "defaultValue": "(args: Header) => ({\n  component: Header,\n  props: args,\n})"
+                "file": "src/stories/Page.stories.ts",
+                "type": "Story<Page>",
+                "defaultValue": "(args: Page) => ({\n  component: Page,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -583,13 +598,31 @@
                 "subtype": "variable",
                 "file": "src/app/todo/todo.component.stories.ts",
                 "type": "Todo",
-                "defaultValue": "{\r\n    title: 'some tod item ...',\r\n    done: false\r\n}"
+                "defaultValue": "{\r\n    title: 'some todo item I need to do',\r\n    done: false\r\n}"
             }
         ],
         "functions": [],
         "typealiases": [],
         "enumerations": [],
         "groupedVariables": {
+            "src/app/todo/todo.component.stories.ts": [
+                {
+                    "name": "actions",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/todo/todo.component.stories.ts",
+                    "type": "object",
+                    "defaultValue": "{\r\n    onDone: action('onDone')\r\n}"
+                },
+                {
+                    "name": "todo",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/todo/todo.component.stories.ts",
+                    "type": "Todo",
+                    "defaultValue": "{\r\n    title: 'some todo item I need to do',\r\n    done: false\r\n}"
+                }
+            ],
             "src/test.ts": [
                 {
                     "name": "context",
@@ -607,16 +640,6 @@
                     "type": "literal type"
                 }
             ],
-            "src/environments/environment.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/environments/environment.ts",
-                    "type": "object",
-                    "defaultValue": "{\n  production: false\n}"
-                }
-            ],
             "src/environments/environment.prod.ts": [
                 {
                     "name": "environment",
@@ -625,6 +648,16 @@
                     "file": "src/environments/environment.prod.ts",
                     "type": "object",
                     "defaultValue": "{\n  production: true\n}"
+                }
+            ],
+            "src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.ts",
+                    "type": "object",
+                    "defaultValue": "{\n  production: false\n}"
                 }
             ],
             "src/stories/Button.stories.ts": [
@@ -720,16 +753,6 @@
                     "type": "Story<Header>",
                     "defaultValue": "(args: Header) => ({\n  component: Header,\n  props: args,\n})"
                 }
-            ],
-            "src/app/todo/todo.component.stories.ts": [
-                {
-                    "name": "todo",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/todo/todo.component.stories.ts",
-                    "type": "Todo",
-                    "defaultValue": "{\r\n    title: 'some tod item ...',\r\n    done: false\r\n}"
-                }
             ]
         },
         "groupedFunctions": {},
@@ -777,6 +800,16 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "actions",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/todo/todo.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "todo",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
@@ -788,7 +821,7 @@
                 "linktype": "component",
                 "name": "TodoComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/4",
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
