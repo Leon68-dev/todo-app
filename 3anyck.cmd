@@ -1,1 +1,1 @@
-npm run storybook
+cmd /k npm run storybook
