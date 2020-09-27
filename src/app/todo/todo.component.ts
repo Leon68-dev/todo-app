@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
-export class Todo{
+export interface Todo{
   title: string;
   done: boolean;
 }

@@ -1,6 +1,33 @@
 {
     "pipes": [],
-    "interfaces": [],
+    "interfaces": [
+        {
+            "name": "Todo",
+            "id": "interface-Todo-2b660a4f8d3e7eada3e41f472ba14f7b",
+            "file": "src/app/todo/todo.component.ts",
+            "type": "interface",
+            "sourceCode": "import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\n\nexport interface Todo{\n  title: string;\n  done: boolean;\n}\n\n@Component({\n  selector: 'app-todo',\n  templateUrl: './todo.component.html',\n  styleUrls: ['./todo.component.css']\n})\nexport class TodoComponent implements OnInit {\n\n  @Input() public todo: Todo;\n  @Output() onDone: EventEmitter<any> = new EventEmitter();\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "properties": [
+                {
+                    "name": "done",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                },
+                {
+                    "name": "title",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 4
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 150,
+            "methods": []
+        }
+    ],
     "injectables": [],
     "classes": [
         {
@@ -28,35 +55,6 @@
                     "line": 4
                 }
             ],
-            "indexSignatures": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "hostBindings": [],
-            "hostListeners": []
-        },
-        {
-            "name": "Todo",
-            "id": "class-Todo-03b52a79572bf77cfb35ff59729059df",
-            "file": "src/app/todo/todo.component.ts",
-            "type": "class",
-            "sourceCode": "import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\n\nexport class Todo{\n  title: string;\n  done: boolean;\n}\n\n@Component({\n  selector: 'app-todo',\n  templateUrl: './todo.component.html',\n  styleUrls: ['./todo.component.css']\n})\nexport class TodoComponent implements OnInit {\n\n  @Input() public todo: Todo;\n  @Output() onDone: EventEmitter<any> = new EventEmitter();\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
-            "properties": [
-                {
-                    "name": "done",
-                    "type": "boolean",
-                    "optional": false,
-                    "description": "",
-                    "line": 5
-                },
-                {
-                    "name": "title",
-                    "type": "string",
-                    "optional": false,
-                    "description": "",
-                    "line": 4
-                }
-            ],
-            "methods": [],
             "indexSignatures": [],
             "inputsClass": [],
             "outputsClass": [],
@@ -320,7 +318,7 @@
         },
         {
             "name": "TodoComponent",
-            "id": "component-TodoComponent-03b52a79572bf77cfb35ff59729059df",
+            "id": "component-TodoComponent-2b660a4f8d3e7eada3e41f472ba14f7b",
             "file": "src/app/todo/todo.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -367,7 +365,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\n\nexport class Todo{\n  title: string;\n  done: boolean;\n}\n\n@Component({\n  selector: 'app-todo',\n  templateUrl: './todo.component.html',\n  styleUrls: ['./todo.component.css']\n})\nexport class TodoComponent implements OnInit {\n\n  @Input() public todo: Todo;\n  @Output() onDone: EventEmitter<any> = new EventEmitter();\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\n\nexport interface Todo{\n  title: string;\n  done: boolean;\n}\n\n@Component({\n  selector: 'app-todo',\n  templateUrl: './todo.component.html',\n  styleUrls: ['./todo.component.css']\n})\nexport class TodoComponent implements OnInit {\n\n  @Input() public todo: Todo;\n  @Output() onDone: EventEmitter<any> = new EventEmitter();\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -826,8 +824,8 @@
             },
             {
                 "filePath": "src/app/todo/todo.component.ts",
-                "type": "class",
-                "linktype": "classe",
+                "type": "interface",
+                "linktype": "interface",
                 "name": "Todo",
                 "coveragePercent": 0,
                 "coverageCount": "0/3",
